@@ -44,6 +44,7 @@
 <script>
 import { useQuasar } from 'quasar'
 import { ref } from 'vue'
+import AuthenticationService from '../services/AuthenticationService'
 
 export default {
     setup() {
@@ -62,7 +63,7 @@ export default {
             rate,
             summary,
 
-            onSubmit() {
+            async onSubmit() {
                 const new_film = {
                     title: title.value,
                     duration: duration.value,
@@ -70,7 +71,14 @@ export default {
                     rate: rate.value,
                     summary: summary.value,
                 }
-                console.log(new_film);
+                const response = await AuthenticationService.registerFilm({
+                    title: title.value,
+                    duration: duration.value,
+                    genre: genre.value,
+                    rate: rate.value,
+                    summary: summary.value,
+                })
+                console.log(response);
                 $q.notify({
                     color: 'green-5',
                     textColor: 'white',

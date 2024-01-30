@@ -1,7 +1,7 @@
-const newCinema = (req, res) => {
+const newFilm = (req, res) => {
     res.json(req.body);
 }
 
 module.exports = {
-    newCinema
+    newFilm
 }

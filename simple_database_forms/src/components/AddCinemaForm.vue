@@ -65,7 +65,7 @@ export default {
                     facilities: facilities.value,
                 }
 
-                const response = await AuthenticationService.register({
+                const response = await AuthenticationService.registerCinema({
                     name: name.value,
                     address: address.value,
                     screens: screens.value,
